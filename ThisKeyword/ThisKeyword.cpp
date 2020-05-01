@@ -2,10 +2,13 @@
 //
 
 #include <iostream>
+#include "Person.h";
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Person person;
+
+    std::cout << person.toString() << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

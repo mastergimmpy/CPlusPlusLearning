@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ThisKeyword"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\ThisKeyword\\Person.h",
   "PreviewInSolutionExplorer": false
 }
