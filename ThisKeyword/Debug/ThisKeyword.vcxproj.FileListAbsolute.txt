@@ -1,0 +1,2 @@
+C:\Users\maste\Source\Repos\CPlusPlusLearning\ThisKeyword\Debug\ThisKeyword.exe
+C:\Users\maste\Source\Repos\CPlusPlusLearning\ThisKeyword\Debug\ThisKeyword.pdb

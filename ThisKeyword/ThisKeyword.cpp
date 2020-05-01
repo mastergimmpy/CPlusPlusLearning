@@ -6,9 +6,16 @@
 
 int main()
 {
+    Person protagonistMale("Leon Kennedy", 21, "Police Officer, Raccoon Police Department");
+    Person protagonistFemale("Claire Redfield", 19, "College Student");
     Person person;
 
-    std::cout << person.toString() << std::endl;
+    person.setInfo("Jill Valentine", 23, "S.T.A.R.S. Alpha Team, Rear Security");
+
+    std::cout << protagonistMale.toString();
+    std::cout << protagonistFemale.toString();
+    std::cout << "\n";
+    std::cout << person.getInfo();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

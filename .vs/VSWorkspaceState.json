@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Getter-Setter",
+    "\\Getter-Setter\\Getter-Setter",
     "\\ThisKeyword"
   ],
-  "SelectedNode": "\\ThisKeyword\\Person.h",
+  "SelectedNode": "\\Getter-Setter\\Getter-Setter\\Getter-Setter.cpp",
   "PreviewInSolutionExplorer": false
 }
