@@ -1,0 +1,2 @@
+C:\Users\gimpy\source\repos\NewOperator\Debug\NewOperator.exe
+C:\Users\gimpy\source\repos\NewOperator\Debug\NewOperator.pdb

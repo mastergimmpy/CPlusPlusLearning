@@ -1,0 +1,2 @@
+C:\Users\gimpy\source\repos\ArraysFunctions\Debug\ArraysFunctions.exe
+C:\Users\gimpy\source\repos\ArraysFunctions\Debug\ArraysFunctions.pdb

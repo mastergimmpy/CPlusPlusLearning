@@ -2,10 +2,21 @@
 //
 
 #include <iostream>
+#include "CustomString.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+
+    CustomString test = "Foo Bar";
+    CustomString test1 = "Bip Bap Bam";
+
+    std::cout << "The length of the variable test is: " << test.len() << std::endl;
+    std::cout << "The length of the variable test1 is: " << test1.len() << std::endl;
+    
+    //std::cout << "Test1 is: " << test1 << std::endl;
+    std::cout << "The index of 'b' is: " << test.index('b') << std::endl;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

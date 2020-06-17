@@ -1,0 +1,2 @@
+C:\Users\gimpy\source\repos\CharArrays\Debug\CharArrays.exe
+C:\Users\gimpy\source\repos\CharArrays\Debug\CharArrays.pdb
