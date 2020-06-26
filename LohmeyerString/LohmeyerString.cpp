@@ -9,23 +9,22 @@ int main()
     std::cout << "Hello World!\n";
 
     CustomString test = "Foo Bar";
-    CustomString test1 = "Bip Bap Bam";
+    test = "Bar Foo";
+    CustomString test1("Foo Bar");
+
+    std::string x = "foo";
 
     std::cout << "The length of the variable test is: " << test.len() << std::endl;
     std::cout << "The length of the variable test1 is: " << test1.len() << std::endl;
+    std::cout << "x: " << x << std::endl;
+    std::cout << "Test1: " << test1 << std::endl;
     
     //std::cout << "Test1 is: " << test1 << std::endl;
     std::cout << "The index of 'b' is: " << test.index('b') << std::endl;
 
+    std::cout << "Are the strings equal? 'Foo Bar' vs 'Foo Bar' " << test.stringCompare("Foo Bar") << std::endl;
+    std::cout << "Are the strings equal? 'Foo Bar' vs 'foo bar' " << test.stringCompare("foo bar") << std::endl;
+    std::cout << "Are the strings equal? 'Foo Bar' vs 'Foo' " << test.stringCompare("Foo") << std::endl;
+    //std::cout << "Toggle case of 'Foo Bar' " << test.toggleCase("Foo Bar") << std::endl;
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

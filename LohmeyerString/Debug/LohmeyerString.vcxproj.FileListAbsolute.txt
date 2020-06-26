@@ -1,2 +1,0 @@
-C:\Users\gimpy\source\repos\LohmeyerString\Debug\LohmeyerString.exe
-C:\Users\gimpy\source\repos\LohmeyerString\Debug\LohmeyerString.pdb
