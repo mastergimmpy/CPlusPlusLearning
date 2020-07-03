@@ -25,6 +25,53 @@ public:
 
 
 	friend std::ostream& operator<<(std::ostream& os, const CustomString& m);
+	friend std::istream& operator>> (std::istream& so, CustomString& s);
+
+	CustomString& operator= (const CustomString& s);
+	CustomString& operator+= (const CustomString& s);
+	
+
+	friend CustomString operator+ (const CustomString& lhs, const CustomString& rhs);
+	friend CustomString operator+ (const CustomString& lhs, char rhs);
+	friend CustomString operator+ (const CustomString& lhs, const char* rhs);
+	friend CustomString operator+ (char lhs, const CustomString& rhs);
+	friend CustomString operator+ (const char* lhs, const CustomString& rhs);
+
+	friend bool operator== (const CustomString& lhs, const CustomString& rhs);
+	friend bool operator== (const CustomString& lhs, char rhs);
+	friend bool operator== (const CustomString& lhs, const char* rhs);
+	friend bool operator== (char lhs, const CustomString& rhs);
+	friend bool operator== (const char* lhs, const CustomString& rhs);
+
+	friend bool operator> (const CustomString& lhs, const CustomString& rhs);
+	friend bool operator> (const CustomString& lhs, char rhs);
+	friend bool operator> (const CustomString& lhs, const char* rhs);
+	friend bool operator> (char lhs, const CustomString& rhs);
+	friend bool operator> (const char* lhs, const CustomString& rhs);
+
+	friend bool operator!= (const CustomString& lhs, const CustomString& rhs);
+	friend bool operator!= (const CustomString& lhs, char rhs);
+	friend bool operator!= (const CustomString& lhs, const char* rhs);
+	friend bool operator!= (char lhs, const CustomString& rhs);
+	friend bool operator!= (const char* lhs, const CustomString& rhs);
+
+	friend bool operator< (const CustomString& lhs, const CustomString& rhs);
+	friend bool operator< (const CustomString& lhs, char rhs);
+	friend bool operator< (const CustomString& lhs, const char* rhs);
+	friend bool operator< (char lhs, const CustomString& rhs);
+	friend bool operator< (const char* lhs, const CustomString& rhs);
+
+	friend bool operator<= (const CustomString& lhs, const CustomString& rhs);
+	friend bool operator<= (const CustomString& lhs, char rhs);
+	friend bool operator<= (const CustomString& lhs, const char* rhs);
+	friend bool operator<= (char lhs, const CustomString& rhs);
+	friend bool operator<= (const char* lhs, const CustomString& rhs);
+
+	friend bool operator>= (const CustomString& lhs, const CustomString& rhs);
+	friend bool operator>= (const CustomString& lhs, char rhs);
+	friend bool operator>= (const CustomString& lhs, const char* rhs);
+	friend bool operator>= (char lhs, const CustomString& rhs);
+	friend bool operator>= (const char* lhs, const CustomString& rhs);
 
 
 };

@@ -67,14 +67,6 @@ int CustomString::stringCompare(const char* c) {
 		while (c[n] != '\0') n++;
 	}
 
-	/*if (length > n) {
-		return -1;
-	}
-
-	if (length < n) {
-		return 1;
-	}*/
-
 	if (length == n) {
 		for (unsigned int i = 0; i < length; i++) {
 			if (data[i] > c[i]) {
@@ -90,18 +82,50 @@ int CustomString::stringCompare(const char* c) {
 	return -1;
 }
 
+CustomString& CustomString::operator= (const CustomString& s) {
+	if (this == &s) {
+		return *this;
+	}
+
+	delete data;
+	length = s.len();
+	data = new char[length + 1];
+	for (unsigned int j = 0; j < length; j++) {
+		data[j] = s[j];
+	}
+	return *this;
+}
+/*
+CustomString& CustomString::operator+= (const CustomString& s) {
+	unsigned int len = length + s.len();
+	char* str = new char[len+1];
+
+	for(unsigned int j = 0; j < length; j++) {
+		str[j] = data[j];
+	}
+
+	for (unsigned int i = 0; i < s.len(); i++) {
+		str[length + i] = s[i];
+	}
+
+
+
+	delete data;
+	length = len;
+	data = str;
+	return *this;
+}
+*/
 std::ostream& operator<<(std::ostream& os, const CustomString& m) {
 	return os << m.data;
 }
 
-/*char toggleCase(char* c) {
-	for (unsigned int i = 0; c != NULL; i++) {
-		if (c[i] >= 'A' && c[i] <= 'Z') {
-			c[i] = c[i] + 32;
-		}
-		else if (c[i] >= 'a' && c[i] <= 'z') {
-			c[i] = c[i] - 32;
-		}
-	}
-	return *c;
-}*/
+std::istream& operator>> (std::istream& is, CustomString& s)
+{
+	char* c = new char[1000];
+	is >> c;
+	s = CustomString(c);
+	delete[] c;
+
+	return is;
+}
