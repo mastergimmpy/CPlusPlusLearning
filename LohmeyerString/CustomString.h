@@ -32,6 +32,7 @@ public:
 
 
 	friend std::ostream& operator<<(std::ostream& os, const CustomString& m);
+
 	friend std::istream& operator>>(std::istream& os, CustomString& m);
 
 

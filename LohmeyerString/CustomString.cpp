@@ -82,6 +82,7 @@ int CustomString::stringCompare(const char* c) {
 	return -1;
 }
 
+
 char CustomString::operator[] (unsigned int j) const {
 	if(j >= length) {
 		throw 1;
@@ -91,10 +92,15 @@ char CustomString::operator[] (unsigned int j) const {
 
 CustomString& CustomString::operator=(const CustomString& c) {
 	if(this == &c) {
+
+CustomString& CustomString::operator= (const CustomString& s) {
+	if (this == &s) {
+
 		return *this;
 	}
 
 	delete data;
+
 	length = c.len();
 	data = new char[length];
 	for(unsigned int j = 0; j < length; j++){
@@ -116,9 +122,12 @@ CustomString& CustomString::operator+=(const CustomString& c){
 		str[length+j] = c[j];
 	}
 
-	delete data;
-	length = len;
-	data = str;
+
+	length = s.len();
+	data = new char[length + 1];
+	for (unsigned int j = 0; j < length; j++) {
+		data[j] = s[j];
+	}
 	return *this;
 }
 
@@ -126,14 +135,12 @@ std::ostream& operator<<(std::ostream& os, const CustomString& m) {
 	return os << m.data;
 }
 
-/*char toggleCase(char* c) {
-	for (unsigned int i = 0; c != NULL; i++) {
-		if (c[i] >= 'A' && c[i] <= 'Z') {
-			c[i] = c[i] + 32;
-		}
-		else if (c[i] >= 'a' && c[i] <= 'z') {
-			c[i] = c[i] - 32;
-		}
-	}
-	return *c;
-}*/
+std::istream& operator>> (std::istream& is, CustomString& s)
+{
+	char* c = new char[1000];
+	is >> c;
+	s = CustomString(c);
+	delete[] c;
+
+	return is;
+}
