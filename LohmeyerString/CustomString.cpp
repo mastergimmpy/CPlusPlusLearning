@@ -67,14 +67,6 @@ int CustomString::stringCompare(const char* c) {
 		while (c[n] != '\0') n++;
 	}
 
-	/*if (length > n) {
-		return -1;
-	}
-
-	if (length < n) {
-		return 1;
-	}*/
-
 	if (length == n) {
 		for (unsigned int i = 0; i < length; i++) {
 			if (data[i] > c[i]) {
@@ -88,6 +80,46 @@ int CustomString::stringCompare(const char* c) {
 	}
 	
 	return -1;
+}
+
+char CustomString::operator[] (unsigned int j) const {
+	if(j >= length) {
+		throw 1;
+	}
+	return data[j];
+}
+
+CustomString& CustomString::operator=(const CustomString& c) {
+	if(this == &c) {
+		return *this;
+	}
+
+	delete data;
+	length = c.len();
+	data = new char[length];
+	for(unsigned int j = 0; j < length; j++){
+		data[j] = c.data[j];
+	}
+
+	return *this;
+}
+
+CustomString& CustomString::operator+=(const CustomString& c){
+	unsigned int len = length + c.len();
+	char* str = new char[len];
+
+	for(unsigned int i = 0; i < length; i++) {
+		str[i] = data[i];
+	}
+
+	for(unsigned int j = 0; j < c.len(); j++) {
+		str[length+j] = c[j];
+	}
+
+	delete data;
+	length = len;
+	data = str;
+	return *this;
 }
 
 std::ostream& operator<<(std::ostream& os, const CustomString& m) {
