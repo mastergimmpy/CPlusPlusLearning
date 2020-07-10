@@ -25,9 +25,17 @@ public:
 	CustomString& operator=(const CustomString& c);
 	CustomString& operator+=(const CustomString& c);
 
-	bool operator==(const CustomString& lhs, const CustomString& rhs);
-	bool operator==(const CustomString& lhs, char rhs);
-	bool operator==(char lhs, const CustomString& rhs);
+	friend CustomString& operator+(const CustomString& lhs, const CustomString& rhs);
+	friend CustomString& operator+(const CustomString& lhs, char rhs);
+	friend CustomString& operator+(const CustomString& lhs, const char* rhs);
+	friend CustomString& operator+(char lhs, const CustomString& rhs);
+	friend CustomString& operator+(const char* lhs, const CustomString& rhs);
+
+	friend bool operator==(const CustomString& lhs, const CustomString& rhs);
+	friend bool operator==(const CustomString& lhs, char rhs);
+	friend bool operator==(char lhs, const CustomString& rhs);
+	friend bool operator==(const char* lhs, const CustomString& rhs);
+	friend bool operator==(const CustomString& lhs, const char* rhs);
 	
 
 

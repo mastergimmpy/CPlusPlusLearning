@@ -124,7 +124,7 @@ CustomString& CustomString::operator+=(const CustomString& c){
 	}
 
 	for(unsigned int j = 0; j < c.len(); j++) {
-		str[length+j] = c.data[j];
+		str[length+j] = c[j];
 	}
 
 	delete data;
@@ -133,6 +133,59 @@ CustomString& CustomString::operator+=(const CustomString& c){
 
 	return *this;
 }
+
+// BEGIN | operator+
+CustomString& operator+(const CustomString& lhs, const CustomString& rhs) {
+	return CustomString(lhs) += rhs;
+}
+
+CustomString& operator+(const CustomString& lhs, char rhs) {
+	return CustomString(lhs) += CustomString(rhs);
+}
+
+CustomString& operator+(const CustomString& lhs, const char* rhs) {
+	return CustomString(lhs) += CustomString(rhs);
+}
+
+CustomString& operator+(char lhs, const CustomString& rhs) {
+	return CustomString(lhs) += rhs;
+}
+
+CustomString& operator+(const char* lhs, const CustomString& rhs) {
+	return CustomString(lhs) += rhs;
+}
+// END | operator+
+
+
+// BEGIN | operator==
+bool operator==(const CustomString& lhs, const CustomString& rhs) {
+	if(lhs.len() != rhs.len()) {
+		return false;
+	}
+
+	unsigned int capacity = lhs.len();
+	unsigned int n = 0;
+
+	while((n < capacity) && (lhs[n] == rhs[n])) n++;
+	return (n == capacity);
+}
+
+bool operator==(const CustomString& lhs, char rhs) {
+	return (lhs == CustomString(rhs));
+}
+
+bool operator==(const CustomString& lhs, const char* rhs) {
+	return (lhs == CustomString(rhs));
+}
+
+bool operator==(char lhs, const CustomString& rhs) {
+	return (CustomString(lhs) == rhs);
+}
+
+bool operator==(const char* lhs, const CustomString& rhs) {
+	return(CustomString(lhs) == rhs);
+}
+// END | operator==
 
 std::ostream& operator<<(std::ostream& os, const CustomString& m) {
 	return os << m.data;
