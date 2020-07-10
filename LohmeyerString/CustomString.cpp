@@ -83,19 +83,24 @@ int CustomString::stringCompare(const char* c) {
 }
 
 
-char CustomString::operator[] (unsigned int j) const {
+char& CustomString::operator[] (unsigned int j) {
 	if(j >= length) {
-		throw 1;
+		std::cout<<"Array index is out of bounds. Exiting...";
+		exit(0);
+	}
+	return data[j];
+}
+
+const char& CustomString::operator[] (unsigned int j) const {
+	if(j >= length) {
+		std::cout<<"Array index is out of bounds. Exiting...";
+		exit(0);
 	}
 	return data[j];
 }
 
 CustomString& CustomString::operator=(const CustomString& c) {
 	if(this == &c) {
-
-CustomString& CustomString::operator= (const CustomString& s) {
-	if (this == &s) {
-
 		return *this;
 	}
 
@@ -119,15 +124,13 @@ CustomString& CustomString::operator+=(const CustomString& c){
 	}
 
 	for(unsigned int j = 0; j < c.len(); j++) {
-		str[length+j] = c[j];
+		str[length+j] = c.data[j];
 	}
 
+	delete data;
+	length = len;
+	data = str;
 
-	length = s.len();
-	data = new char[length + 1];
-	for (unsigned int j = 0; j < length; j++) {
-		data[j] = s[j];
-	}
 	return *this;
 }
 

@@ -19,10 +19,16 @@ public:
 	unsigned len() const;
 	int index(char c) const;
 	
-	char operator[](unsigned int j) const;
+	char& operator[](unsigned int j);
+	const char& operator[](unsigned int j) const;
 	
 	CustomString& operator=(const CustomString& c);
 	CustomString& operator+=(const CustomString& c);
+
+	bool operator==(const CustomString& lhs, const CustomString& rhs);
+	bool operator==(const CustomString& lhs, char rhs);
+	bool operator==(char lhs, const CustomString& rhs);
+	
 
 
 	void upCase(unsigned int first, unsigned int last);
