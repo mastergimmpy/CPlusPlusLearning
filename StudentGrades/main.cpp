@@ -7,8 +7,12 @@
 
 using namespace std;
 
-double grades(double midterm, double final, double homework) {
-	return .02 * midterm + 0.4 * final + 0.4 * homework;
+double grades(double midterm, double final, const vector<double>& homework) {
+	if(homework.size() == 0) {
+		throw domain_error("student has done no homework");
+	}
+
+	return .02 * midterm + 0.4 * final + 0.4 * median(homework);
 }
 
 double median(vector<double> grades) {
