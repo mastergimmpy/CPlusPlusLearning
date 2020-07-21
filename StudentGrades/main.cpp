@@ -32,8 +32,6 @@ double median(vector<double> grades) {
 
 int main() {
 
-	// boom boom boom muffins
-
 	string name;
 	double midterm, final, medianGrade, x;
 	vector<double> homework;
