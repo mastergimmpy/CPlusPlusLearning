@@ -30,6 +30,26 @@ double median(vector<double> grades) {
 	return size % 2 == 0 ? (grades[mid] + grades[mid-1])/2 : grades[mid];
 }
 
+istream& read_hw(istream& in, vector<double>& homework) {
+	// fill in this stuff
+	if(in) {
+		// get rid of the previous contents
+		homework.clear();
+
+		// read the homework grades
+		double x;
+		while(in >> x){
+			homework.push_back(x);
+		}
+
+		// clear the stream for the input from the next student
+		in.clear();
+	}
+
+
+	return in;
+}
+
 int main() {
 
 	string name;
@@ -47,18 +67,21 @@ int main() {
 
 	// ask for the homework grades
 	cout << "Enter your homework grades, followed by end-of-file: ";
+	read_hw(cin, homework);
 
+	// compute and generate the final grade, if possible
 
-
-	while(cin >> x) 
-		homework.push_back(x);
-
-	medianGrade = median(homework);
-
-
-	streamsize prec = cout.precision();
-	cout << "Your final grade is: " << setprecision(3)
-			<< grades(midterm, final, medianGrade) << endl;
+	try {
+		double finalGrade = grade(midterm, final, homework);
+		
+		streamsize prec = cout.precision();
+		cout << "Your final grade is: " << setprecision(3)
+			<< finalGrade << endl;
+	} catch (domain_error) {
+		cout << endl << "You must enter your grades. "
+		"Please try again." << endl;
+		return 1;
+	}
 
 	return 0;
 }
