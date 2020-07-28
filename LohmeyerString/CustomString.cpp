@@ -250,6 +250,72 @@ bool operator!=(const char* lhs, const CustomString& rhs) {
 }
 // END | operator!=
 
+// BEGIN | operator<
+bool operator<(const CustomString& lhs, const CustomString& rhs) {
+	return !(lhs > rhs);
+}
+
+bool operator<(const CustomString& lhs, char rhs) {
+	return !(lhs > rhs);
+}
+
+bool operator<(const CustomString& lhs, const char* rhs) {
+	return !(lhs > rhs);
+}
+
+bool operator<(char lhs, const CustomString& rhs) {
+	return !(lhs > rhs);
+}
+
+bool operator<(const char* lhs, const CustomString& rhs) {
+	return !(lhs > rhs);
+}
+// END | operator<
+
+// BEGIN | operator>=
+bool operator>=(const CustomString& lhs, const CustomString& rhs) {
+	return (lhs == rhs) || (lhs > rhs);
+}
+
+bool operator>=(const CustomString& lhs, char rhs) {
+	return (lhs == rhs) || (lhs > rhs);
+}
+
+bool operator>=(const CustomString& lhs, const char* rhs) {
+	return (lhs == rhs) || (lhs > rhs);
+}
+
+bool operator>=(char lhs, const CustomString& rhs) {
+	return (lhs == rhs) || (lhs > rhs);
+}
+
+bool operator>=(const char* lhs, const CustomString& rhs) {
+	return (lhs == rhs) || (lhs > rhs);
+}
+// END | operator>=
+
+// BEGIN | operator<=
+bool operator>=(const CustomString& lhs, const CustomString& rhs) {
+	return !(lhs == rhs) || !(lhs > rhs);
+}
+
+bool operator>=(const CustomString& lhs, char rhs) {
+	return !(lhs == rhs) || !(lhs > rhs);
+}
+
+bool operator>=(const CustomString& lhs, const char* rhs) {
+	return !(lhs == rhs) || !(lhs > rhs);
+}
+
+bool operator>=(char lhs, const CustomString& rhs) {
+	return !(lhs == rhs) || !(lhs > rhs);
+}
+
+bool operator>=(const char* lhs, const CustomString& rhs) {
+	return !(lhs == rhs) || !(lhs > rhs);
+}
+// END | operator<=
+
 
 std::ostream& operator<<(std::ostream& os, const CustomString& m) {
 	return os << m.data;
