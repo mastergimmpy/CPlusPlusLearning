@@ -36,7 +36,21 @@ public:
 	friend bool operator==(char lhs, const CustomString& rhs);
 	friend bool operator==(const char* lhs, const CustomString& rhs);
 	friend bool operator==(const CustomString& lhs, const char* rhs);
+
+	friend bool operator>(const CustomString& lhs, const CustomString& rhs);
+	friend bool operator>(const CustomString& lhs, char rhs);
+	friend bool operator>(const CustomString& lhs, const char* rhs);
+	friend bool operator>(char lhs, const CustomString& rhs);
+	friend bool operator>(const char* lhs, const CustomString& rhs);
+
+	friend bool operator!=(const CustomString& lhs, const CustomString& rhs);
+	friend bool operator!=(const CustomString& lhs, char rhs);
+	friend bool operator!=(char lhs, const CustomString& rhs);
+	friend bool operator!=(const char* lhs, const CustomString& rhs);
+	friend bool operator!=(const CustomString& lhs, const char* rhs);
 	
+	friend bool operator<(const CustomString& lhs, const CustomString& rhs);
+	friend bool operator<(const CustomString& lhs, char rhs);
 
 
 	void upCase(unsigned int first, unsigned int last);
