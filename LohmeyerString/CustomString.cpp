@@ -107,17 +107,21 @@ CustomString& CustomString::operator=(const CustomString& c) {
 	delete data;
 
 	length = c.len();
-	data = new char[length];
+	data = new char[length+1];
 	for(unsigned int j = 0; j < length; j++){
 		data[j] = c.data[j];
 	}
+
+	data[length] = NULL;
 
 	return *this;
 }
 
 CustomString& CustomString::operator+=(const CustomString& c){
 	unsigned int len = length + c.len();
-	char* str = new char[len];
+	// checking length
+	std::cout << "Length for new string is: " << len << std::endl;
+	char* str = new char[len +1];
 
 	for(unsigned int i = 0; i < length; i++) {
 		str[i] = data[i];
@@ -129,29 +133,33 @@ CustomString& CustomString::operator+=(const CustomString& c){
 
 	delete data;
 	length = len;
+	str[len] = NULL;
+	// double checking str contents
+	std::cout << "str contents are: " << str << std::endl;
+
 	data = str;
 
 	return *this;
 }
 
 // BEGIN | operator+
-CustomString& operator+(const CustomString& lhs, const CustomString& rhs) {
+CustomString operator+(const CustomString& lhs, const CustomString& rhs) {
 	return CustomString(lhs) += rhs;
 }
 
-CustomString& operator+(const CustomString& lhs, char rhs) {
+CustomString operator+(const CustomString& lhs, char rhs) {
 	return CustomString(lhs) += CustomString(rhs);
 }
 
-CustomString& operator+(const CustomString& lhs, const char* rhs) {
+CustomString operator+(const CustomString& lhs, const char* rhs) {
 	return CustomString(lhs) += CustomString(rhs);
 }
 
-CustomString& operator+(char lhs, const CustomString& rhs) {
+CustomString operator+(char lhs, const CustomString& rhs) {
 	return CustomString(lhs) += rhs;
 }
 
-CustomString& operator+(const char* lhs, const CustomString& rhs) {
+CustomString operator+(const char* lhs, const CustomString& rhs) {
 	return CustomString(lhs) += rhs;
 }
 // END | operator+
@@ -159,7 +167,12 @@ CustomString& operator+(const char* lhs, const CustomString& rhs) {
 
 // BEGIN | operator==
 bool operator==(const CustomString& lhs, const CustomString& rhs) {
+	// testing 
+	std::cout << "lhs is: " << lhs << " and the length of lhs is: " << lhs.len() << std::endl;
+	std::cout << "rhs is: " << rhs << " and the length of rhs is: " << rhs.len() << std::endl;
 	if(lhs.len() != rhs.len()) {
+		// testing if length is working
+		std::cout << "Length in operator== is not equal" << std::endl;
 		return false;
 	}
 
@@ -187,46 +200,41 @@ bool operator==(const char* lhs, const CustomString& rhs) {
 }
 // END | operator==
 
-// BEGIN | operator>
-bool operator>(const CustomString& lhs, const CustomString& rhs) {
-	unsigned int cap (lhs.len() < rhs.len()) ? lhs.len() : rhs.len();
+// BEGIN | operator<
+bool operator<(const CustomString& lhs, const CustomString& rhs) {
+	unsigned int cap = (lhs.len() < rhs.len()) ? lhs.len() : rhs.len();
 	unsigned int n = 0;
 
 	while((n < cap) && (lhs[n] == rhs[n])) n++;
-	if(n == cap) {
-		return (lhs.len() > rhs.len());
-	}
+	// if(n == cap) {
+	// 	return (lhs.len() < rhs.len());
+	// }
 
-	if( ('A' <= lhs[n] && lhs[n] <= 'Z') || ('a' <= lhs[n] && lhs[n] <= 'z') && 
-		('A' <= rhs[n] && rhs[n] <= 'Z') || ('a' <= rhs[n] && rhs[n] <= 'z') ) {
+	int A = int(lhs[n]);
+	int B = int(rhs[n]);
 
-		char A = (lhs[n] & ~32);
-		char B = (rhs[n] & ~32);
-
-		if(A != B) {
-			return (A > B);
-		}
-	}
-
-	return lhs[n] > rhs[n];
+	if(A < B)
+		return true;
+	else
+		return false;
 }
 
-bool operator>(const CustomString& lhs, char rhs) {
+bool operator<(const CustomString& lhs, char rhs) {
 	return (lhs > CustomString(rhs));
 }
 
-bool operator>(const CustomString& lhs, const char* rhs) {
+bool operator<(const CustomString& lhs, const char* rhs) {
 	return (lhs > CustomString(rhs));
 }
 
-bool operator>(char lhs, const CustomString& rhs) {
+bool operator<(char lhs, const CustomString& rhs) {
 	return (CustomString(lhs) > rhs);
 }
 
-bool operator>(const char* lhs, const CustomString& rhs) {
+bool operator<(const char* lhs, const CustomString& rhs) {
 	return (CustomString(lhs) > rhs);
 }
-// END | operator>
+// END | operator<
 
 // BEGIN | operator!=
 bool operator!=(const CustomString& lhs, const CustomString& rhs){
@@ -250,27 +258,27 @@ bool operator!=(const char* lhs, const CustomString& rhs) {
 }
 // END | operator!=
 
-// BEGIN | operator<
-bool operator<(const CustomString& lhs, const CustomString& rhs) {
-	return !(lhs > rhs);
+// BEGIN | operator>
+bool operator>(const CustomString& lhs, const CustomString& rhs) {
+	return !(lhs < rhs);
 }
 
-bool operator<(const CustomString& lhs, char rhs) {
-	return !(lhs > rhs);
+bool operator>(const CustomString& lhs, char rhs) {
+	return !(lhs < rhs);
 }
 
-bool operator<(const CustomString& lhs, const char* rhs) {
-	return !(lhs > rhs);
+bool operator>(const CustomString& lhs, const char* rhs) {
+	return !(lhs < rhs);
 }
 
-bool operator<(char lhs, const CustomString& rhs) {
-	return !(lhs > rhs);
+bool operator>(char lhs, const CustomString& rhs) {
+	return !(lhs < rhs);
 }
 
-bool operator<(const char* lhs, const CustomString& rhs) {
-	return !(lhs > rhs);
+bool operator>(const char* lhs, const CustomString& rhs) {
+	return !(lhs < rhs);
 }
-// END | operator<
+// END | operator>
 
 // BEGIN | operator>=
 bool operator>=(const CustomString& lhs, const CustomString& rhs) {
@@ -295,27 +303,52 @@ bool operator>=(const char* lhs, const CustomString& rhs) {
 // END | operator>=
 
 // BEGIN | operator<=
-bool operator>=(const CustomString& lhs, const CustomString& rhs) {
+bool operator<=(const CustomString& lhs, const CustomString& rhs) {
 	return !(lhs == rhs) || !(lhs > rhs);
 }
 
-bool operator>=(const CustomString& lhs, char rhs) {
+bool operator<=(const CustomString& lhs, char rhs) {
 	return !(lhs == rhs) || !(lhs > rhs);
 }
 
-bool operator>=(const CustomString& lhs, const char* rhs) {
+bool operator<=(const CustomString& lhs, const char* rhs) {
 	return !(lhs == rhs) || !(lhs > rhs);
 }
 
-bool operator>=(char lhs, const CustomString& rhs) {
+bool operator<=(char lhs, const CustomString& rhs) {
 	return !(lhs == rhs) || !(lhs > rhs);
 }
 
-bool operator>=(const char* lhs, const CustomString& rhs) {
+bool operator<=(const char* lhs, const CustomString& rhs) {
 	return !(lhs == rhs) || !(lhs > rhs);
 }
 // END | operator<=
 
+
+void CustomString::upCase(unsigned int first, unsigned int last) {
+	if((first >= last) || (last > length)) {
+		throw 1;
+	}
+
+	for(int i = first; i < last; i++) {
+		if('a' <= data[i] && data[i] <= 'z'){
+			data[i] -= ('a' - 'A');
+		}
+	}
+}
+
+
+void CustomString::downCase(unsigned int first, unsigned int last) {
+	if((first >= last) || (last > length)) {
+		throw 1;
+	}
+
+	for(int i = first; i < last; i++) {
+		if('A' <= data[i] && data[i] <= 'Z'){
+			data[i] += ('a' - 'A');
+		}
+	}
+}
 
 std::ostream& operator<<(std::ostream& os, const CustomString& m) {
 	return os << m.data;
