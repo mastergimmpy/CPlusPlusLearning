@@ -6,11 +6,12 @@
 class Node
 {
 private:
+
+public:
 	int key;
 	int data;
-	Node* next;
-	Node* previous;
-public:
+	Node *nextNode;
+	Node *previousNode;
 	Node();
 	Node(int k, int d);
 	//~Node();

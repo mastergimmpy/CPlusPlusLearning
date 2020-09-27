@@ -6,12 +6,17 @@
 class DoublyLinkedList
 {
 public:
-	Node* head;
+	Node *head;
 
 	DoublyLinkedList();
 	DoublyLinkedList(Node *n);
-	~DoublyLinkedList();
+	//~DoublyLinkedList();
 	
+
+	Node* checkIfNodeExists(int k);
+	void appendNode(Node *n);
+	void prependNode(Node *n);
+	void insertNodeAfter(int k, Node *n);
 };
 
 #endif

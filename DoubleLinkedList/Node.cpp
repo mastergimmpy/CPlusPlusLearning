@@ -3,8 +3,8 @@
 Node::Node() {
 	key = 0;
 	data = 0;
-	next = NULL;
-	previous = NULL;
+	nextNode = NULL;
+	previousNode = NULL;
 }
 
 Node::Node(int k, int d) {
