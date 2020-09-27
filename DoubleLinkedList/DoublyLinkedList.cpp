@@ -81,5 +81,37 @@ void DoublyLinkedList::prependNode(Node *n) {
 
 
 void DoublyLinkedList::insertNodeAfter(int k, Node *n) {
+	Node *ptr DoublyLinkedList::checkIfNodeExists(k);
 
+	if(ptr == NULL) {
+		std::cout << "No node exists with that key value: " << k << std::endl;
+	}
+	else {
+		if(DoublyLinkedList::checkIfNodeExists(n->key) != NULL) {
+			std::cout << "Node already exists with key value: " << n->key << ". Append another node with a different key value" << std::endl;
+		}
+		else {
+			std::cout << "INSERTING..." << std::endl;
+
+			Node *nextNodeAfter = ptr->nextNode;
+
+
+			// appending at the end
+			if(nextNode == NULL) {
+				ptr->nextNode = n;
+				n->previousNode = ptr;
+
+				std::cout << "Node has been inserted at the END" << std::endl;
+			}
+			// inserting the node between two existing nodes
+			else {
+				n->nextNode = nextNodeAfter;
+				nextNodeAfter->previousNode = n;
+				n->previousNode = ptr;
+				ptr->nextNode = n;
+
+				std::cout << "Node has been inserted between nodes."
+			}
+		}
+	}
 }
