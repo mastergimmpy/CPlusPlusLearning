@@ -17,6 +17,7 @@ public:
 	void appendNode(Node *n);
 	void prependNode(Node *n);
 	void insertNodeAfter(int k, Node *n);
+	void deleteNodeByKey(int k);
 };
 
 #endif

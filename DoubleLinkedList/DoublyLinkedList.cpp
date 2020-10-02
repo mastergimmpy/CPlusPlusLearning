@@ -115,3 +115,37 @@ void DoublyLinkedList::insertNodeAfter(int k, Node *n) {
 		}
 	}
 }
+
+
+void DoublyLinkedList::deleteNodeByKey(int k) {
+	Node *ptr DoublyLinkedList::checkIfNodeExists(k);
+
+	if(ptr == NULL) {
+		std::cout << "No node exists with that key value: " << k << std::endl;
+	}
+	else {
+		if(head == NULL) {
+			std::cout << "Node can't be deleted. List is already empty" << std::endl;
+		}
+		else if(head != NULL) {
+			if(head->key == k) {
+				head = head->nextNode;
+				std::cout << "Node with key value: " << k << " has been unlinked" << std::endl;
+			}
+			else{
+				Node *nextNodeLink = ptr->nextNode;
+				Node *previousNodeLink = ptr->previousNode;
+
+				if(nextNodeLink == NULL) {
+					previousNodeLink->nextNode = NULL;
+					std::cout << "Node has been unlinked from the end" << std::endl;
+				}
+				else {
+					previousNodeLink->nextNode = nextNodeLink;
+					nextNodeLink->previousNode = previousNodeLink;
+					std::cout << "Node unlinked from between two nodes" << std::endl;
+				}
+			}
+		}
+	}
+}
