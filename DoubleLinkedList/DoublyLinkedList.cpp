@@ -81,7 +81,7 @@ void DoublyLinkedList::prependNode(Node *n) {
 
 
 void DoublyLinkedList::insertNodeAfter(int k, Node *n) {
-	Node *ptr DoublyLinkedList::checkIfNodeExists(k);
+	Node *ptr = DoublyLinkedList::checkIfNodeExists(k);
 
 	if(ptr == NULL) {
 		std::cout << "No node exists with that key value: " << k << std::endl;
@@ -97,7 +97,7 @@ void DoublyLinkedList::insertNodeAfter(int k, Node *n) {
 
 
 			// appending at the end
-			if(nextNode == NULL) {
+			if(nextNodeAfter == NULL) {
 				ptr->nextNode = n;
 				n->previousNode = ptr;
 
@@ -110,15 +110,15 @@ void DoublyLinkedList::insertNodeAfter(int k, Node *n) {
 				n->previousNode = ptr;
 				ptr->nextNode = n;
 
-				std::cout << "Node has been inserted between nodes."
+				std::cout << "Node has been inserted between nodes.";
 			}
 		}
 	}
 }
 
 
-void DoublyLinkedList::deleteNodeByKey(int k) {
-	Node *ptr DoublyLinkedList::checkIfNodeExists(k);
+void DoublyLinkedList::delinkNodeByKey(int k) {
+	Node *ptr = DoublyLinkedList::checkIfNodeExists(k);
 
 	if(ptr == NULL) {
 		std::cout << "No node exists with that key value: " << k << std::endl;
