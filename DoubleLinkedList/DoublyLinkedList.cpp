@@ -138,13 +138,13 @@ void DoublyLinkedList::delinkNodeByKey(int k) {
 
 				if(nextNodeLink == NULL) {
 					previousNodeLink->nextNode = NULL;
-					// Call Node deconstructor
+					// Call Node deconstructor ?
 					std::cout << "Node has been unlinked from the end" << std::endl;
 				}
 				else {
 					previousNodeLink->nextNode = nextNodeLink;
 					nextNodeLink->previousNode = previousNodeLink;
-					// Call Node deconstructor
+					// Call Node deconstructor ?
 					std::cout << "Node unlinked from between two nodes" << std::endl;
 				}
 			}
