@@ -14,7 +14,7 @@ public:
 	Node *previousNode;
 	Node();
 	Node(int k, int d);
-	//~Node();
+	~Node();
 	
 };
 

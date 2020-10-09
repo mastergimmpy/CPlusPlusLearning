@@ -18,6 +18,8 @@ public:
 	void prependNode(Node *n);
 	void insertNodeAfter(int k, Node *n);
 	void delinkNodeByKey(int k);
+	void updateNodeByKey(int k, int d);
+	void printList();
 };
 
 #endif

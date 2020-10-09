@@ -138,14 +138,43 @@ void DoublyLinkedList::delinkNodeByKey(int k) {
 
 				if(nextNodeLink == NULL) {
 					previousNodeLink->nextNode = NULL;
+					// Call Node deconstructor
 					std::cout << "Node has been unlinked from the end" << std::endl;
 				}
 				else {
 					previousNodeLink->nextNode = nextNodeLink;
 					nextNodeLink->previousNode = previousNodeLink;
+					// Call Node deconstructor
 					std::cout << "Node unlinked from between two nodes" << std::endl;
 				}
 			}
+		}
+	}
+}
+
+void DoublyLinkedList::updateNodeByKey(int k, int d) {
+	Node *ptr = DoublyLinkedList::checkIfNodeExists(k);
+
+	if(ptr != NULL) {
+		ptr->data = d;
+		std::cout << "Node data has been updated" << std::endl;
+	}
+	else {
+		std::cout << "That Node with key value: " << k << " does not exist" << std::endl;
+	}
+}
+
+void DoublyLinkedList::printList() {
+	if(head == NULL) {
+		std::cout << "No Nodes in the Doubly Linked List to print" << std::endl;
+	}
+	else {
+		std::cout << std::endl << "The Doubly Linked List values are: " << std::endl;
+		Node *temp = head;
+
+		while(temp != NULL) {
+			std::cout << "(" << temp->key << "," << temp->data << ")" << std::endl;
+			temp = temp->nextNode;
 		}
 	}
 }

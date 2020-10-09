@@ -12,6 +12,8 @@ Node::Node(int k, int d) {
 	data = d;
 }
 
-// Node::~Node() {
-// 	delete data;
-// }
+Node::~Node() {
+	// delete data;
+	// delete key;
+	std::cout << "Destructor has been called" << std::endl;
+}
