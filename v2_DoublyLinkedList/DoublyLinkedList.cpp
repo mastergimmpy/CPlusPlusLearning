@@ -3,15 +3,32 @@
 
 DoublyLinkedList::DoublyLinkedList(){
 	head = NULL;
+	tail = NULL;
 }
 
 DoublyLinkedList::DoublyLinkedList(Node *n) {
 	head = n;
+	tail = n;
 }
 
 // DoublyLinkedList::~DoublyLinkedList() {
 
 // }
+
+
+// 1 Find Node
+Node* DoublyLinkedList::find(int d){
+	// Node *temp = NULL;
+	Node *ptr = head;
+
+	while(ptr != NULL) {
+		if(ptr->data == d) {
+			return ptr;
+		}
+
+		prt = ptr->nextNode;
+	}
+}
 
 
 // 1. Check if node exists using key value
