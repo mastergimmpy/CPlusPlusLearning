@@ -24,8 +24,8 @@ public:
 
 	// Updated Doubly Linked List methods
 	Node* find(int d);
-	void appendNode(Node *n);
-	void prependNode(Node *n);
+	void append(Node *n);
+	void prepend(Node *n);
 	void insertNodeBefore(Node *n);
 	void insertNodeAfter(Node *n);
 	void printList();

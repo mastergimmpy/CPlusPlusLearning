@@ -28,6 +28,42 @@ Node* DoublyLinkedList::find(int d){
 
 		prt = ptr->nextNode;
 	}
+
+	std::cout << "Node with data of: " << d << " was not found." << std::endl;
+}
+
+// 2. Append node to the list
+void DoublyLinkedList::append(Node *n){
+	if(head == NULL) {
+		head = n;
+		tail = n;
+		std::cout << "Node has been added as the head" <<std::endl;
+	}
+	else {
+		Node *ptr = tail;
+		ptr->nextNode = n;
+		n->previousNode = ptr;
+		tail = n;
+
+		std::cout << "Node appended" << std::endl;
+	}
+}
+
+// 3. Prepend a node to the beginning of the list
+void DoublyLinkedList::prepend(Node *n) {
+	if(head == NULL) {
+		head = n;
+		tail = n;
+		std::cout << "Node has been added as the head" << std::endl;
+	}
+	else {
+		Node *ptr = head;
+		ptr->previousNode = n;
+		n->nextNode = ptr;
+		head = n;
+
+		std::cout << "Node has been prepended to the head" << std::endl;
+	}
 }
 
 
