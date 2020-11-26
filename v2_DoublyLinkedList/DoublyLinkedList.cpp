@@ -68,20 +68,20 @@ void DoublyLinkedList::prepend(Node *n) {
 
 
 // 1. Check if node exists using key value
-Node* DoublyLinkedList::checkIfNodeExists(int k) {
-	Node *temp = NULL;
-	Node *ptr = head;
+// Node* DoublyLinkedList::checkIfNodeExists(int k) {
+// 	Node *temp = NULL;
+// 	Node *ptr = head;
 
-	while(ptr != NULL){
-		if(ptr->key == k) {
-			temp = ptr;
-		}
+// 	while(ptr != NULL){
+// 		if(ptr->key == k) {
+// 			temp = ptr;
+// 		}
 
-		ptr = ptr->nextNode;
-	}
+// 		ptr = ptr->nextNode;
+// 	}
 
-	return temp;
-}
+// 	return temp;
+// }
 
 // 2. Append a node to the list
 
