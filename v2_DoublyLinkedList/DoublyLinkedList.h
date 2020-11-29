@@ -26,8 +26,8 @@ public:
 	Node* find(int d);
 	void append(Node *n);
 	void prepend(Node *n);
-	void insertNodeBefore(Node *n);
-	void insertNodeAfter(Node *n);
+	void insertNodeBefore(int d, Node *n);
+	void insertNodeAfter(int d, Node *n);
 	void printList();
 };
 
