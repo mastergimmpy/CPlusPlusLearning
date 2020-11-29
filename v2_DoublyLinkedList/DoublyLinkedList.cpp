@@ -69,13 +69,27 @@ void DoublyLinkedList::prepend(Node *n) {
 
 // 4. Insert before Node
 void DoublyLinkedList::insertNodeBefore(int d, Node *n){
+	// check if node with data d exists
 
+	// check if d is the head
+
+	// if d is the head, prepend the node
+
+	// else if d is the tail, append the node
+
+	// else set previous node->next to Node n, and current node to Node n->next
 }
 
 
 // 5. Insert after Node
 void DoublyLinkedList::insertNodeAfter(int d, Node *n){
+	// check if node with data d exists
 
+	// check if d is the tail
+
+	// if d is the tail, append the node
+
+	// else set current node->next to Node n, and next node->previous to Node n->next
 }
 
 
