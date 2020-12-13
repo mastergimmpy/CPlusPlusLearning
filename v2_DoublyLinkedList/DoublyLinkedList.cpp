@@ -18,7 +18,7 @@ DoublyLinkedList::DoublyLinkedList(Node *n) {
 
 // 1 Find Node
 Node* DoublyLinkedList::find(int d){
-	// Node *temp = NULL;
+	Node *temp = NULL;
 	Node *ptr = head;
 
 	while(ptr != NULL) {
@@ -26,10 +26,11 @@ Node* DoublyLinkedList::find(int d){
 			return ptr;
 		}
 
-		prt = ptr->nextNode;
+		ptr = ptr->nextNode;
 	}
 
-	std::cout << "Node with data of: " << d << " was not found." << std::endl;
+	//std::cout << "Node with data of: " << d << " was not found." << std::endl;
+	return temp;
 }
 
 // 2. Append node to the list
@@ -70,6 +71,23 @@ void DoublyLinkedList::prepend(Node *n) {
 // 4. Insert before Node
 void DoublyLinkedList::insertNodeBefore(int d, Node *n){
 	// check if node with data d exists
+	Node *ptr = DoublyLinkedList::find(d);
+	Node *temp = NULL;
+
+	if(ptr == NULL) {
+		std::cout << "No node with value " << d << " exists" << std::endl;
+	}
+	else {
+		if(ptr == head) {
+			DoublyLinkedList::prepend(n);
+		}
+		else if(ptr == tail) {
+			temp->nextNode = ptr->previousNode;
+			n->previousNode = temp->nextNode;
+			
+
+		}
+	}
 
 	// check if d is the head
 
@@ -90,6 +108,10 @@ void DoublyLinkedList::insertNodeAfter(int d, Node *n){
 	// if d is the tail, append the node
 
 	// else set current node->next to Node n, and next node->previous to Node n->next
+}
+
+void DoublyLinkedList::insertNodeBefore(int d, Node *n) {
+	
 }
 
 
@@ -128,6 +150,8 @@ void DoublyLinkedList::insertNodeAfter(int k, Node *n) {
 		}
 	}
 }
+
+
 
 
 void DoublyLinkedList::delinkNodeByKey(int k) {
